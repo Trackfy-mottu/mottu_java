@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.*;
 
 import lombok.AllArgsConstructor;
@@ -35,6 +37,7 @@ public class Pendencia {
     @NotNull(message = "O status da pendência é obrigatório")
     private StatusPendencia status;
 
-    @NotBlank(message = "A placa da moto é obrigatório")
-    private String idMoto;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "moto_id", referencedColumnName = "idChassi")
+    private Moto moto;
 }

@@ -1,11 +1,15 @@
 package com.fiap.sprint1_java2025.model;
 
+import java.util.List;
+
 import com.fiap.sprint1_java2025.Enums.LocalizacaoMoto;
 import com.fiap.sprint1_java2025.Enums.ModeloMoto;
 import com.fiap.sprint1_java2025.Enums.StatusMoto;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -33,7 +37,8 @@ public class Moto {
     @NotNull(message = "O status da moto é obrigatório")
     private StatusMoto status;
 
-    private Pendencia pendencia;
+    @OneToMany(mappedBy = "moto", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Pendencia> pendencias;
 
     @NotNull(message = "O modelo da moto é obrigatório")
     private ModeloMoto modelo;
@@ -41,7 +46,7 @@ public class Moto {
     @Size(max = 100, message = "O nome do pátio deve ter no máximo 100 caracteres")
     private String patio;
 
-    @Min(value = 0, message = "A pendência deve ser no mínimo 0")
+    @Min(value = 1, message = "O id do usuário deve ser maior que 0")
     private Long idUsuario;
 
 }
