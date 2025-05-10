@@ -1,6 +1,6 @@
 package com.fiap.sprint1_java2025.model;
 
-import com.fiap.sprint1_java2025.Enums.StatusPendencia;
+import com.fiap.sprint1_java2025.Enums.StatusPending;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pendencia {
+public class Pending {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,9 +35,9 @@ public class Pendencia {
     private String descricao;
 
     @NotNull(message = "O status da pendência é obrigatório")
-    private StatusPendencia status;
+    private StatusPending status;
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "moto_id", referencedColumnName = "idChassi")
-    private Moto moto;
+    private Bike moto;
 }

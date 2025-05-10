@@ -2,9 +2,9 @@ package com.fiap.sprint1_java2025.model;
 
 import java.util.List;
 
-import com.fiap.sprint1_java2025.Enums.LocalizacaoMoto;
-import com.fiap.sprint1_java2025.Enums.ModeloMoto;
-import com.fiap.sprint1_java2025.Enums.StatusMoto;
+import com.fiap.sprint1_java2025.Enums.LocationBike;
+import com.fiap.sprint1_java2025.Enums.ModelsBike;
+import com.fiap.sprint1_java2025.Enums.StatusBike;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Moto {
+public class Bike {
     @Id
     @NotNull(message = "O número do chassi da moto não pode ser nulo")
     private String placa;
@@ -32,16 +32,16 @@ public class Moto {
     private Long idChassi;
 
     @NotNull(message = "A localização da moto é obrigatória")
-    private LocalizacaoMoto localização;
+    private LocationBike localização;
 
     @NotNull(message = "O status da moto é obrigatório")
-    private StatusMoto status;
+    private StatusBike status;
 
     @OneToMany(mappedBy = "moto", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Pendencia> pendencias;
+    private List<Pending> pendencias;
 
     @NotNull(message = "O modelo da moto é obrigatório")
-    private ModeloMoto modelo;
+    private ModelsBike modelo;
 
     @Size(max = 100, message = "O nome do pátio deve ter no máximo 100 caracteres")
     private String patio;
