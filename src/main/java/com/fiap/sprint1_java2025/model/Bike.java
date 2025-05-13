@@ -25,14 +25,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Bike {
     @Id
-    @NotNull(message = "O número do chassi da moto não pode ser nulo")
+    @NotNull(message = "O número da placa da moto não pode ser nulo")
     private String placa;
 
     @NotNull(message = "O número do chassi da moto não pode ser nulo")
     private Long idChassi;
 
-    @NotNull(message = "A localização da moto é obrigatória")
-    private LocationBike localização;
+    @NotNull(message = "A localizacao da moto é obrigatória")
+    private LocationBike localizacao;
 
     @NotNull(message = "O status da moto é obrigatório")
     private StatusBike status;

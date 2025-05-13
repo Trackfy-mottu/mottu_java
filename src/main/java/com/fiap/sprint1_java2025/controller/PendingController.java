@@ -1,5 +1,6 @@
 package com.fiap.sprint1_java2025.controller;
 
+import com.fiap.sprint1_java2025.dto.PendingDTO;
 import com.fiap.sprint1_java2025.model.Pending;
 import com.fiap.sprint1_java2025.repository.PendingRepository;
 
@@ -33,9 +34,9 @@ public class PendingController {
 
     @GetMapping
     @Cacheable("pendings")
-    public Page<Pending> index(
+    public Page<PendingDTO> index(
             @PageableDefault(size = 10, sort = "id", direction = Direction.DESC) Pageable pageable) {
-        return repository.findAll(pageable);
+        return repository.findAll(pageable).map(this::toDTO);
     }
 
     @PostMapping
@@ -44,15 +45,15 @@ public class PendingController {
             @ApiResponse(responseCode = "201"),
             @ApiResponse(responseCode = "400"),
     })
-    public ResponseEntity<Pending> create(@RequestBody Pending pending) {
+    public ResponseEntity<PendingDTO> create(@RequestBody Pending pending) {
         log.info("Criando nova pendência...");
         repository.save(pending);
-        return ResponseEntity.status(HttpStatus.CREATED).body(pending);
+        return ResponseEntity.status(HttpStatus.CREATED).body(toDTO(pending));
     }
 
     @GetMapping("{id}")
-    public Pending show(@PathVariable Long id) {
-        return getPending(id);
+    public PendingDTO show(@PathVariable Long id) {
+        return toDTO(getPending(id));
     }
 
     @DeleteMapping("{id}")
@@ -65,15 +66,24 @@ public class PendingController {
 
     @PutMapping("{id}")
     @CacheEvict(value = "pendings", allEntries = true)
-    public Pending update(@PathVariable Long id, @RequestBody Pending pending) {
+    public PendingDTO update(@PathVariable Long id, @RequestBody Pending pending) {
         log.info("Atualizando pendência " + id);
         getPending(id); // Verifica se existe
         pending.setId(id);
-        return repository.save(pending);
+        return toDTO(repository.save(pending));
     }
 
     private Pending getPending(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pendência não encontrada"));
+    }
+
+    private PendingDTO toDTO(Pending pending) {
+        return new PendingDTO(
+                pending.getId(),
+                pending.getNumber(),
+                pending.getDescricao(),
+                pending.getStatus(),
+                pending.getMoto() != null ? pending.getMoto().getPlaca() : null);
     }
 }
