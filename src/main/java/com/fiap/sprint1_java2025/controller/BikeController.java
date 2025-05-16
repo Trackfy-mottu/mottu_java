@@ -83,9 +83,9 @@ public class BikeController {
                 .map(p -> new PendingDTO(
                         p.getId(),
                         p.getNumber(),
-                        p.getDescricao(),
+                        p.getDescription(),
                         p.getStatus(),
-                        p.getMoto() != null ? p.getMoto().getPlaca() : null))
+                        p.getBike() != null ? p.getBike().getPlaca() : null))
                 .collect(Collectors.toList());
 
         return new BikeDTO(

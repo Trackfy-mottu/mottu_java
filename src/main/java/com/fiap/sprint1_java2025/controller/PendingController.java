@@ -82,8 +82,8 @@ public class PendingController {
         return new PendingDTO(
                 pending.getId(),
                 pending.getNumber(),
-                pending.getDescricao(),
+                pending.getDescription(),
                 pending.getStatus(),
-                pending.getMoto() != null ? pending.getMoto().getPlaca() : null);
+                pending.getBike() != null ? pending.getBike().getPlaca() : null);
     }
 }

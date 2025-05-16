@@ -32,12 +32,12 @@ public class Pending {
     private Long number;
 
     @Size(max = 400, message = "A descrição deve ter no máximo 400 caracteres")
-    private String descricao;
+    private String description;
 
     @NotNull(message = "O status da pendência é obrigatório")
     private StatusPending status;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "moto_id", referencedColumnName = "idChassi")
-    private Bike moto;
+    @JoinColumn(name = "bike_id", referencedColumnName = "placa")
+    private Bike bike;
 }

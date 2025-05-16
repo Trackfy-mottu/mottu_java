@@ -57,16 +57,16 @@ public class DataBaseSeeder {
 
                 Pending pend1 = Pending.builder()
                                 .number(1L)
-                                .descricao("Falta de documentação")
+                                .description("Falta de documentação")
                                 .status(StatusPending.EmAndamento)
-                                .moto(moto1)
+                                .bike(moto1)
                                 .build();
 
                 Pending pend2 = Pending.builder()
                                 .number(2L)
-                                .descricao("Multa em aberto")
+                                .description("Multa em aberto")
                                 .status(StatusPending.Pendente)
-                                .moto(moto2)
+                                .bike(moto2)
                                 .build();
 
                 pendenciaRepository.saveAll(Arrays.asList(pend1, pend2));
