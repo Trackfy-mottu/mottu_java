@@ -37,7 +37,7 @@ public class Bike {
     @NotNull(message = "O status da moto é obrigatório")
     private StatusBike status;
 
-    @OneToMany(mappedBy = "moto", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "bike", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pending> pendencias;
 
     @NotNull(message = "O modelo da moto é obrigatório")

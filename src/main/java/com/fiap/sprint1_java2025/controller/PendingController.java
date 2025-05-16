@@ -2,7 +2,9 @@ package com.fiap.sprint1_java2025.controller;
 
 import com.fiap.sprint1_java2025.dto.PendingDTO;
 import com.fiap.sprint1_java2025.model.Pending;
+import com.fiap.sprint1_java2025.model.PendingFilter;
 import com.fiap.sprint1_java2025.repository.PendingRepository;
+import com.fiap.sprint1_java2025.specification.PendingSpecification;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -35,8 +37,10 @@ public class PendingController {
     @GetMapping
     @Cacheable("pendings")
     public Page<PendingDTO> index(
+            PendingFilter filter,
             @PageableDefault(size = 10, sort = "id", direction = Direction.DESC) Pageable pageable) {
-        return repository.findAll(pageable).map(this::toDTO);
+        var specification = PendingSpecification.withFilters(filter);
+        return repository.findAll(specification, pageable).map(this::toDTO);
     }
 
     @PostMapping
