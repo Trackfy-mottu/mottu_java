@@ -1,0 +1,14 @@
+Passo 1 -  Criação do Resource Group  no Azure via CLI 
+az group create -l eastus -n rg-vm-challenge
+
+Passo 2 -  Criação da VM linux no Azure via CLI:
+az vm create --resource-group rg-vm-challenge --name vm-challenge --image Canonical:ubuntu-24_04-lts:minimal:24.04.202505020 --size Standard_B2s --admin-username admin_fiap --admin-password admin_fiap@123
+
+Passo 3 -  Criação da NSG com prioridade 1010 no Azure via CLI 
+az network nsg rule create --resource-group rg-vm-challenge --nsg-name vm-challengeNSG --name port_8080 --protocol tcp --priority 1010 --destination-port-range 8080
+
+Passo 1 -  CCriação da NSG com prioridade 1020 no Azure via CLI 
+az network nsg rule create --resource-group rg-vm-challenge --nsg-name vm-challengeNSG --name port_80 --protocol tcp --priority 1020 --destination-port-range 80
+
+Passo 5 -  Abrir portas necessárias ao projeto via CLI -
+az vm open-port --port 80  --resource-group rg-vm-challenge  --name vm-challenge
