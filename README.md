@@ -9,9 +9,9 @@ Este projeto tem como objetivo mapear setores de uma planta ou instalação util
 
 ## 👥 Responsáveis pelo Projeto
 
-- Guilherme Alves Pedroso  
-- João Vitor da Silva  
-- Rafael Souza Bezerra  
+- Guilherme Alves Pedroso  - RM555357
+- João Vitor Silva Nascimento - RM554694 
+- Rafael Souza Bezerra  - 557888
 
 ---
 
