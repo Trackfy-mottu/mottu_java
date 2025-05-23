@@ -1,4 +1,3 @@
-
 # 🛰️ Projeto de Mapeamento de Setores com Sensores
 
 ## 📋 Descrição
@@ -9,9 +8,9 @@ Este projeto tem como objetivo mapear setores de uma planta ou instalação util
 
 ## 👥 Responsáveis pelo Projeto
 
-- Guilherme Alves Pedroso  - RM555357
-- João Vitor Silva Nascimento - RM554694 
-- Rafael Souza Bezerra  - 557888
+- Guilherme Alves Pedroso - RM555357
+- João Vitor Silva Nascimento - RM554694
+- Rafael Souza Bezerra - 557888
 
 ---
 
@@ -44,6 +43,36 @@ O backend é dividido em dois módulos:
   - Regras de negócio relacionadas aos setores e permissões de acesso.
 
 ---
+
+# 🚀 Executar a aplicação Java Spring Boot pronta
+
+---
+
+## ✅ Pré-requisitos
+
+Antes de iniciar, certifique-se de ter instalado:
+
+- [Java JDK 17 ou superior](https://adoptium.net/)
+- [Maven](https://maven.apache.org/) ou use o Maven wrapper (`./mvnw`)
+- (Opcional) [Spring Boot CLI](https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html#getting-started.installing.cli)
+
+---
+
+## ▶️ Executando a aplicação
+
+### 1. Acesse o diretório do projeto
+
+```bash
+cd nome-do-seu-projeto
+```
+
+### 2. Execute com Maven
+
+Se você estiver usando Maven instalado globalmente:
+
+```bash
+mvn spring-boot:run
+```
 
 ## 🚀 Passo a Passo de Execução
 
