@@ -44,11 +44,11 @@ O backend é dividido em dois módulos:
 
 ---
 
-# 🚀 Executar a aplicação Java Spring Boot pronta
+## 🚀 Executar a aplicação Java Spring Boot
 
 ---
 
-## ✅ Pré-requisitos
+### ✅ Pré-requisitos
 
 Antes de iniciar, certifique-se de ter instalado:
 
@@ -58,7 +58,7 @@ Antes de iniciar, certifique-se de ter instalado:
 
 ---
 
-## ▶️ Executando a aplicação
+### ▶️ Executando a aplicação
 
 ### 1. Acesse o diretório do projeto
 
@@ -74,7 +74,7 @@ Se você estiver usando Maven instalado globalmente:
 mvn spring-boot:run
 ```
 
-## 🚀 Passo a Passo de Execução
+## 🚀 Passo a Passo de Execução por cloud
 
 ### ✅ Passo 1 - Criação do Resource Group no Azure via CLI
 
